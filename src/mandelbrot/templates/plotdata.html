@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<title>"Mandelbrot Set"</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style type="text/css">
+
+			.options label {
+				font-size: 12px;
+				font-family: Arial, Helvetica, sans-serif;
+				width: 20px;
+				text-align: right;
+				padding-right: 10px;
+			}
+
+			#outer-container {
+				display: flex;
+				flex-direction: row;
+			}
+
+			#gridxlabel {
+				width: 615px;
+			}		
+
+			#xlabel-container {
+				display: flex;
+				flex-direction: row;
+				width: 600px;
+				justify-content: space-between;
+			}
+
+			#ylabel-container {
+				display: flex;
+				flex-direction: column-reverse;
+				width:40px;
+				justify-content: start;
+			}
+
+			div.xlabel, div.ylabel {
+				font-size: 10px;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			div.ylabel {
+				text-align: right;
+				flex: 0 0 60px;
+			}
+
+			div.ylabel:first-child {
+				flex: 0 0 10px;
+			}
+
+			div.xlabel {
+				text-align: left;
+				flex: 0 0 60px;
+			}
+
+			div.grid {
+				display: grid;
+				grid-template-columns: repeat(200, 3px);
+				grid-template-rows: repeat(200, 3px);
+				width: 600px;
+				height: 600px;
+				border: 2px solid black;
+				margin-left: 10px;
+			}
+			
+			/*  y-axis ticks */
+			.grid div:nth-child(4001), .grid div:nth-child(8001), .grid div:nth-child(12001), .grid div:nth-child(16001), .grid div:nth-child(20001), .grid div:nth-child(24001),
+			.grid div:nth-child(28001), .grid div:nth-child(32001), .grid div:nth-child(36001) {
+			border-bottom: 2px solid black;
+			}
+
+			/* x-axis ticks */
+			.grid div:nth-child(39820), .grid div:nth-child(39840), .grid div:nth-child(39860), .grid div:nth-child(39880), .grid div:nth-child(39900), .grid div:nth-child(39920),
+			.grid div:nth-child(39940), .grid div:nth-child(39960), .grid div:nth-child(39980) {
+			border-left: 2px solid black;
+			}
+
+			div.grid > div {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				color: black;
+			}
+
+			div.grid > div.gray1 {
+				background-color: #fff;
+			}
+			div.grid > div.gray2 {
+				background-color: #ccc;
+			}
+			div.grid > div.gray3 {
+				background-color: #888;
+			}
+			div.grid > div.gray4 {
+				background-color: #444;
+			}
+			div.grid > div.gray5 {
+				background-color: #000;
+			}
+
+			#form {
+				margin-left: 10px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="outer-container">
+			<div id="ylabel-container">
+				{{range .Ylabel}}
+					<div class="ylabel">{{.}}</div>
+				{{end}}
+			</div>
+			<div id="gridxlabel">
+				<div class="grid">
+					{{range .Grid}}
+						<div class="{{.}}"></div>
+					{{end}}
+				</div>
+				<div id="xlabel-container">
+					{{range .Xlabel}}
+						<div class="xlabel">{{.}}</div>
+					{{end}}
+				</div>
+			</div>
+			<div id="form">
+				<form action="http://127.0.0.1:8080/mandelbrot" method="post">
+					<fieldset>
+						<legend>Plot Options</legend>
+						<div class="options">
+							<label for="xstart">x start:</label>
+							<input type="text" id="xstart" name="xstart" />
+							<label for="xend">x end:</label>
+							<input type="text" id="xend" name="xend" />
+							<br />
+							<label for="ystart" >y start:</label>
+							<input type="text" id="ystart" name="ystart" />
+							<label for="yend">y end:</label>
+							<input type="text" id="yend" name="yend" />
+							<br />
+						</div>
+						<input type="submit" value="Submit" />
+						<input type="text" size="50" name="status" value="{{.Status}}" readonly />
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
