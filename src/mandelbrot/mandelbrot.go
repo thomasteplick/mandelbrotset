@@ -173,14 +173,14 @@ func handlePlotting(w http.ResponseWriter, r *http.Request) {
 			maxits = result.maxits
 		}
 
-		// Save the interations of all the cells in this row
+		// Save the iterations of all the cells in this row
 		for col := 0; col < columns; col++ {
 			plot.Grid[result.row*columns+col] = strconv.Itoa(result.its[col])
 		}
 	}
 
-	// Map interations to background color:  higher iterations are dark gray to black,
-	// lower interations are white to lighter shades of gray.  Black denotes members
+	// Map iterations to background color:  higher iterations are dark gray to black,
+	// lower iterations are white to lighter shades of gray.  Black denotes members
 	// of the set.
 	color := []string{"gray1", "gray2", "gray3", "gray4", "gray5"}
 
