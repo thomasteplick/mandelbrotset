@@ -1,6 +1,6 @@
 // mandelbrot plots the set of complex points that satisfy z(n+1) = z(n)^2 + c
-// as n goes to infinity and the magnitude is less than 4.  c = x + yi is the
-// x-y coordinate of the cell.  z(0) = c.  Zoom to any point in the complex plane.
+// as n goes to infinity and the complex magnitude is less than 2.  c = x + yi is the
+// x-y coordinate of the cell.  z(0) = c.  Plot options allow zooming to any point in the complex plane.
 
 package main
 
@@ -15,8 +15,8 @@ import (
 )
 
 const (
-	rows          = 200                                            // #rows in grid
-	columns       = 200                                            // #columns in grid
+	rows          = 300                                            // #rows in grid
+	columns       = 300                                            // #columns in grid
 	tmpl          = "../../src/mandelbrot/templates/plotdata.html" // html template relative address
 	addr          = "127.0.0.1:8080"                               // http server listen address
 	pattern       = "/mandelbrot"                                  // http handler pattern for plotting data
