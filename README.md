@@ -4,4 +4,6 @@ In a web browser enter http://127.0.0.1:8080/mandelbrot in the address bar.  The
 
 ![image](https://user-images.githubusercontent.com/117768679/208185893-32fa9977-a55e-4647-9a47-8ae7f05a5eeb.png)
 ![image](https://user-images.githubusercontent.com/117768679/208186398-9384e36b-67a7-484c-92e8-dc5d6fb507f1.png)
-
+![mandelbrotset_2](https://user-images.githubusercontent.com/117768679/208505230-5e2aa748-512d-49a1-8cbd-87f37016a4fb.PNG)
+![mandelbrotset_4](https://user-images.githubusercontent.com/117768679/208505307-c8a32147-916b-483b-89f1-ad5052ea3a57.PNG)
+![mandelbrotset_5](https://user-images.githubusercontent.com/117768679/208505368-2b87fea7-77e2-43b3-b826-3b95863561e2.PNG)
